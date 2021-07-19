@@ -1,4 +1,5 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import "./ActiveUserList.css";
 import ActiveUserListItem from "./ActiveUserListItem"
 const activeUsers = [
@@ -21,9 +22,14 @@ const activeUsers = [
 ];
 
 const ActiveUserList = () => {
+
+  const {activeUsers} = useSelector(state => state.dashboard)
+  console.log(activeUsers)
+
+
   return (
     <div className="active_user_list_container">
-      {activeUsers.map(user => <ActiveUserListItem key={user.id} user={user}/>)}
+      {activeUsers.map(user => <ActiveUserListItem key={user.socket} user={user}/>)}
     </div>
   )
 }

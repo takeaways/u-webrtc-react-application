@@ -10,6 +10,8 @@ import logo from "../resources/logo.png"
 
 import { setUserName } from '../store/actions/dashboard';
 
+import {registerNewUser} from "../utils/socket/connection"
+
 const LoginPage = () => {
 
   const dispatch = useDispatch();
@@ -18,8 +20,9 @@ const LoginPage = () => {
   const [username, setUsername] = useState("")
 
   const handleClickSubmitButton = () => {
-    dispatch(setUserName(username))
-    history.push(`/dashboard`)
+    registerNewUser(username)
+    dispatch(setUserName(username));
+    history.push(`/dashboard`);
   }
 
   return (

@@ -1,7 +1,8 @@
 import * as dashboardActions from "../actions/dashboard"
 
 const initialState = {
-  username:''
+  username:'',
+  activeUsers:[],
 }
 
 const reducer = (state = initialState, action) => {
@@ -12,6 +13,12 @@ const reducer = (state = initialState, action) => {
         username:action.username
       }
     
+    case dashboardActions.DASHBOARD_SET_ACTIVE_USERS:
+      return {
+        ...state,
+        activeUsers:action.activeUsers
+      }
+
     default:
       return state;
   }
